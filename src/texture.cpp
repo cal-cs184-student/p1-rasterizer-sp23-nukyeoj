@@ -16,10 +16,12 @@ namespace CGL {
 
   float Texture::get_level(const SampleParams& sp) {
     // TODO: Task 6: Fill this in.
-
-
-
-    return 0;
+      float a = sqrt(pow(sp.p_uv.x * (width - 1) - sp.p_dx_uv.x * (width - 1), 2) +
+                     pow(sp.p_uv.y * (height - 1) - sp.p_dx_uv.y * (height - 1), 2));
+      float b = sqrt(pow(sp.p_uv.x * (width - 1) - sp.p_dy_uv.x * (width - 1), 2) +
+                     pow(sp.p_uv.y * (height - 1) - sp.p_dy_uv.y * (height - 1), 2));
+      float L = max(a, b);
+      return log2(L);
   }
 
   Color MipLevel::get_texel(int tx, int ty) {
@@ -28,24 +30,68 @@ namespace CGL {
 
   Color Texture::sample_nearest(Vector2D uv, int level) {
     // TODO: Task 5: Fill this in.
-    auto& mip = mipmap[level];
+      if (level < 0) {
+          level = 0;
+      }
+      auto& mip = mipmap[level];
 
-
-
-
-    // return magenta for invalid level
-    return Color(1, 0, 1);
+      return mip.get_texel(floor(-uv.x * (width-1) / pow(2, level)), floor(-uv.y * (height-1) / pow(2, level)));
   }
 
   Color Texture::sample_bilinear(Vector2D uv, int level) {
     // TODO: Task 5: Fill this in.
-    auto& mip = mipmap[level];
-
-
-
-
-    // return magenta for invalid level
-    return Color(1, 0, 1);
+      if (level < 0) {
+          level = 0;
+      }
+      auto& mip = mipmap[level];
+      float u = -uv.x * (width - 1) / pow(2, level);
+      float v = -uv.y * (height - 1) / pow(2, level);
+      
+      int u00, u01, u10, u11;
+      int v00, v01, v10, v11;
+      
+      //float t = 1.0 / pow(2, level+1);
+      float t = 1.0 / 2.0;
+      
+      if (u - (int)u >= t) {
+          if (v - (int)v >= t) {
+              u00 = floor(u);
+              v00 = floor(v);
+              u10 = u00; u01 = std::min(u00 + 1, (int)width); u11 = u10;
+              v01 = v00; v10 = std::min(v00 + 1, (int)height); v11 = v10;
+          } else {
+              u10 = floor(u);
+              v10 = floor(v);
+              u00 = u10; u11 = std::min(u10 + 1, (int)width); u01 = u11;
+              v11 = v10; v00 = std::max(v10 - 1, 0); v01 = v00;
+          }
+      } else {
+          if (v - (int)v >= t) {
+              u01 = floor(u);
+              v01 = floor(v);
+              u11 = u01; u00 = std::max(u01 - 1, 0); u10 = u11;
+              v00 = v01; v11 = std::min(v01 + 1, (int)height); v10 = v11;
+          } else {
+              u11 = floor(u);
+              v11 = floor(v);
+              u01 = u11; u10 = std::max(u11 - 1, 0); u00 = u10;
+              v10 = v11; v01 = std::max(v11 - 1, 0); v00 = v01;
+          }
+      }
+      
+      
+      float alpha = v - v00 - t;
+      float beta = u - u00 - t;
+      
+      Color a = mip.get_texel(u00, v00);
+      Color b = mip.get_texel(u10, v10);
+      Color c = mip.get_texel(u11, v11);
+      Color d = mip.get_texel(u01, v01);
+      
+      Color e = a + alpha * (b + a * (-1));
+      Color f = d + alpha * (c + d * (-1));
+      
+      return e + beta * (f + e * (-1));
   }
 
 
