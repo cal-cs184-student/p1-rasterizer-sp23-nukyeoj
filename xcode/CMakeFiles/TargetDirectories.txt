@@ -1,0 +1,16 @@
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CMakeFiles/draw.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CMakeFiles/install.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CMakeFiles/ALL_BUILD.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CMakeFiles/ZERO_CHECK.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/CMakeFiles/CGL.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/CMakeFiles/install.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/CMakeFiles/ALL_BUILD.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/CMakeFiles/ZERO_CHECK.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/deps/glew/CMakeFiles/glew.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/deps/glew/CMakeFiles/install.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/deps/glfw/CMakeFiles/uninstall.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/deps/glfw/CMakeFiles/install.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/deps/glfw/CMakeFiles/ALL_BUILD.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/deps/glfw/CMakeFiles/ZERO_CHECK.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/deps/glfw/src/CMakeFiles/glfw.dir
+/Users/joeyhou0804/Desktop/cs184/p1-rasterizer-sp23-nukyeoj-master/xcode/CGL/deps/glfw/src/CMakeFiles/install.dir
